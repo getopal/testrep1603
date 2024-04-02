@@ -1,8 +1,45 @@
-import '../styles/app.scss'
+import { AnimatePresence } from 'framer-motion'
+import { SnackbarProvider } from 'notistack'
+import React, { useEffect } from 'react'
 
+import Footer from '../components/ui/Footer/Footer'
+import Header from '../components/ui/Header/Header'
 
-export default function _app({ Component, pageProps }) {
-    const getLayout = Component.getLayout ?? (page => page)
+import * as Api from '../api'
+import { state } from '../state'
+import '../styles/App.scss'
+import '../styles/index.scss'
+import { getCookie } from '../utils/getCookie'
 
-    return getLayout(<Component {...pageProps} />)
+import 'swiper/css'
+
+export default function App({ Component, pageProps, router }) {
+	useEffect(() => {
+		const token = getCookie('_token')
+
+		if (token && token !== 'undefined') {
+			Api.auth.getMe().then(user => {
+				state.user = user
+			})
+		}
+	}, [])
+
+	return (
+		<div className='main'>
+			<Header />
+			<SnackbarProvider
+				anchorOrigin={{
+					vertical: 'top',
+					horizontal: 'right'
+				}}
+				maxSnack={2}
+				autoHideDuration={2000}
+			>
+				<AnimatePresence mode='wait'>
+					<Component key={router.route} {...pageProps} />
+				</AnimatePresence>
+			</SnackbarProvider>
+			<Footer />
+		</div>
+	)
 }

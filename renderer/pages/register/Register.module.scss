@@ -1,0 +1,32 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.container {
+  width: 500px;
+}
+
+.title {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+
+  input {
+    width: 100%;
+  }
+}
