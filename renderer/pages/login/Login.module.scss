@@ -1,3 +1,5 @@
+@use '../../styles/index' as *;
+
 .wrapper {
   display: flex;
   align-items: center;
@@ -12,7 +14,7 @@
 
 .title {
   margin-bottom: 20px;
-  color: white;
+  color: $txt-color;
   text-align: center;
 }
 

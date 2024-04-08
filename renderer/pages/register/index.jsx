@@ -104,7 +104,7 @@ const RegisterPage = () => {
 						/>
 						<Input
 							width='100%'
-							label='Никнейм'
+							label='Имя пользователя'
 							type='nick'
 							id='nick'
 							name='nick'
@@ -136,9 +136,9 @@ const RegisterPage = () => {
 						setValue={value => onHandleChange(value, 'ava')}
 						file={data.ava}
 						id='ava'
-						placeholder='Аватарка'
+						placeholder='Добавить фото профиля'
 					/>
-					<Button type='submit'>Зарегистрироваться</Button>
+					<Button type='submit'>Создать профиль</Button>
 				</form>
 			</div>
 		</div>

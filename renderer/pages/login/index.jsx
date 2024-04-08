@@ -92,7 +92,7 @@ const LoginPage = () => {
 						value={data.password}
 						className={s.input}
 					/>
-					<Button type='submit'>Войти</Button>
+					<Button children={'Войти'} type='submit'></Button>
 				</form>
 			</div>
 		</div>

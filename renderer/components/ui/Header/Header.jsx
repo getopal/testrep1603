@@ -15,22 +15,22 @@ const Header = () => {
 
 	const headerNavNoAuth = [
 		{
-			display: t('Home'),
+			display: t('Главная'),
 			path: '/'
 		},
 		{
-			display: 'Login',
+			display: 'Вход',
 			path: '/login'
 		},
 		{
-			display: 'Registration',
+			display: 'Регистрация',
 			path: '/register'
 		}
 	]
 
 	const headerNavAuth = [
 		{
-			display: t('Home'),
+			display: t('Главная'),
 			path: '/'
 		},
 		...(snap.user?.isAdmin
