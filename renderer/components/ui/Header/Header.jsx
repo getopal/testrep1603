@@ -33,6 +33,10 @@ const Header = () => {
 			display: t('Главная'),
 			path: '/'
 		},
+		{
+			display: t('Заказы'),
+			path: '/orders'
+		},
 		...(snap.user?.isAdmin
 			? [
 					{
