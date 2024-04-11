@@ -7,7 +7,7 @@ function Index() {
 	return (
 		<React.Fragment>
 			<Head>
-				<title>Home - Nextron (basic-lang-javascript)</title>
+				<title>PackDrive</title>
 			</Head>
 		</React.Fragment>
 	)

@@ -22,23 +22,29 @@ export default function App({ Component, pageProps, router }) {
 				state.user = user
 			})
 		}
+
+		Api.orders.getAllOrders().then(res => {
+			state.ordersArray = res
+		})
 	}, [])
 
 	return (
 		<div className='main'>
 			<Header />
-			<SnackbarProvider
-				anchorOrigin={{
-					vertical: 'top',
-					horizontal: 'right'
-				}}
-				maxSnack={2}
-				autoHideDuration={2000}
-			>
-				<AnimatePresence mode='wait'>
-					<Component key={router.route} {...pageProps} />
-				</AnimatePresence>
-			</SnackbarProvider>
+			<div className='content-container'>
+				<SnackbarProvider
+					anchorOrigin={{
+						vertical: 'top',
+						horizontal: 'right'
+					}}
+					maxSnack={2}
+					autoHideDuration={2000}
+				>
+					<AnimatePresence mode='wait'>
+						<Component key={router.route} {...pageProps} />
+					</AnimatePresence>
+				</SnackbarProvider>
+			</div>
 			<Footer />
 		</div>
 	)

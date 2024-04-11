@@ -1,0 +1,48 @@
+@use '../../styles/variables' as *;
+
+
+.wrapper {
+  .image_block {
+    display: flex;
+    align-items: center;
+    min-width: 150px;
+
+    .image {
+      max-width: 150px;
+      border-radius: 10px;
+    }
+  }
+
+
+  .actors {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .actor {
+    width: 110px;
+    overflow: hidden;
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .actions_block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    a,
+    button {
+      padding: 10px;
+      color: $txt-color;
+      background: $black;
+      border: none;
+      border-radius: 8px;
+    }
+  }
+}

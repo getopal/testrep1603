@@ -8,6 +8,10 @@
   padding: 0;
 }
 
+.content-container {
+  flex: 1 0 auto;
+}
+
 .main-page {
   display: flex;
   flex-direction: column;

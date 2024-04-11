@@ -72,9 +72,7 @@ const Profile = () => {
 						<button
 							onClick={() => setIsEditAva(prevState => !prevState)}
 							className={s.edit}
-						>
-							Изменить аватарку
-						</button>
+						></button>
 					</div>
 					<div className={s.column}>
 						<div className={s.row}>

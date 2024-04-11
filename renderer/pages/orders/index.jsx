@@ -1,43 +1,30 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSnapshot } from 'valtio'
 
-import * as Api from '../../api'
+import CreateOrder from '../../components/CreateOrder/CreateOrder'
+import OrderTable from '../../components/OrderTable/OrderTable'
+import Tabs from '../../components/Tabs/Tabs'
+
 import { state } from '../../state'
 
 const Orders = () => {
+	const [active, setActive] = useState(0)
 	const snap = useSnapshot(state)
-	const [orders, setOrders] = useState([])
-
-	const fetchAllOrders = async () => {
-		Api.orders.getAllOrders().then(res => {
-			setOrders(res)
-		})
+	const renderBlock = active => {
+		switch (active) {
+			case 0:
+				return <CreateOrder />
+			case 1:
+				return <OrderTable />
+		}
 	}
 
-	const deleteOrder = async id => {
-		Api.orders.deleteOrder(id).then(res => {
-			Api.orders.getAllOrders().then(res => {
-				setOrders(res)
-			})
-		})
-	}
-
-	useEffect(() => {
-		fetchAllOrders()
-	}, [])
+	const tabs = ['Создать заказ', 'Все заказы', 'Аккаунты']
 
 	return (
 		<div>
-			{orders.map((order, index) => (
-				<div key={index}>
-					<div>{order.title}</div>
-					<div>{order.phone}</div>
-					<div>{order.time}</div>
-					{snap.user?.isAdmin ? (
-						<button onClick={() => deleteOrder(order.id)}>Delete</button>
-					) : null}
-				</div>
-			))}
+			<Tabs array={tabs} active={active} onChange={setActive} className={''} />
+			{renderBlock(active)}
 		</div>
 	)
 }
